@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 <head>
@@ -8,7 +8,7 @@
 css/bootstrap.min.css">
 <script type="text/javascript" src="./resources/js/jquery-3.4.1.js"></script>
 <script type="text/javascript" src="./resources/js/validation.js"></script>
-<title>영화 등록</title>
+<title>상품 등록</title>
 </head>
 <body>
    <fmt:setLocale value='<%=request.getParameter("language")%>' />

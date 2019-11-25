@@ -1,1 +1,1 @@
-select * from product;
+desc board;

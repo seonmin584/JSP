@@ -6,12 +6,11 @@
 <%@ include file="dbconn.jsp"%>
 <%
 	String filename = "C:\\Users\\USER\\eclipse-workspace\\WebMarket\\WebContent\\resources\\Image";
-	String encType = "UTF-8"; //인코딩 타입
-	int maxSize = 5 * 1024 * 1024; //최대 업로드될 파일의 크기5Mb
+	int maxSize = 5 * 1024 * 1024;
+	String encType = "UTF-8";
 
 	MultipartRequest multi = new MultipartRequest(request, filename, maxSize, encType,
 			new DefaultFileRenamePolicy());
-
 	String productId = multi.getParameter("productId");
 	String name = multi.getParameter("name");
 	String unitPrice = multi.getParameter("unitPrice");
@@ -20,24 +19,19 @@
 	String category = multi.getParameter("category");
 	String unitsInStock = multi.getParameter("unitsInStock");
 	String condition = multi.getParameter("condition");
-	String image = multi.getFilesystemName("productImage");
 
 	Integer price;
 
 	if (unitPrice.isEmpty())
 		price = 0;
-
 	else
-
 		price = Integer.valueOf(unitPrice);
 
 	long stock;
 
 	if (unitsInStock.isEmpty())
 		stock = 0;
-
 	else
-
 		stock = Long.valueOf(unitsInStock);
 
 	Enumeration files = multi.getFileNames();
@@ -47,7 +41,7 @@
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 
-	String sql = "select * from prdocut where p_id = ?";
+	String sql = "select * from product where p_id = ?";
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setString(1, productId);
 	rs = pstmt.executeQuery();
@@ -86,6 +80,5 @@
 		pstmt.close();
 	if (conn != null)
 		conn.close();
-
 	response.sendRedirect("editProduct.jsp?edit=update");
 %>

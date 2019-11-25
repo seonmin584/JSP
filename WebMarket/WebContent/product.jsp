@@ -1,10 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ page import="dto.Product"%>
-<%@ page import="dao.ProductRepository"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page errorPage="exceptionNoProductId.jsp"%>
-<jsp:useBean id="productDAO" class="dao.ProductRepository"
-	scope="session" />
 <html>
 <head>
 <link rel="stylesheet"
@@ -27,37 +22,44 @@
 			<h1 class="display-3">상품 정보</h1>
 		</div>
 	</div>
+	<%@ include file="dbconn.jsp"%>
 	<%
-		String id = request.getParameter("id");
-		ProductRepository dao = ProductRepository.getInstance();
-		Product product = dao.getProductById(id);
+		String productId = request.getParameter("id");
+
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		String sql = "select * from product where p_id = ?";
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, productId);
+		rs = pstmt.executeQuery();
+		if (rs.next()) {
 	%>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-5">
-				<img src="./resources/Image/<%=product.getFilename()%>"
+				<img src="./resources/Image/<%=rs.getString("p_fileName")%>"
 					style="width: 100%; height: 100%;">
 			</div>
 			<div class="col-md-6">
-				<h3><%=product.getPname()%></h3>
-				<p><%=product.getDescription()%>
+				<h3><%=rs.getString("p_name")%></h3>
+				<p><%=rs.getString("p_description")%>
 				<p>
-					<b>상품 코드 : </b><span class="badge-danger"> <%=product.getProductId()%></span>
+					<b>상품 코드 : </b><span class="badge-danger"> <%=rs.getString("p_id")%></span>
 				<p>
-					<b>제조사 : </b><%=product.getManufacturer()%>
+					<b>제조사 : </b><%=rs.getString("p_manufacturer")%>
 				<p>
 					<b>분류 : </b>
-					<%=product.getCategory()%>
+					<%=rs.getString("p_category")%>
 				<p>
 					<b>재고 수 : </b>
-					<%=product.getUnitsInStock()%>
-				<h4><%=product.getUnitPrice()%>원
+					<%=rs.getLong("p_unitsInStock")%>
+				<h4><%=rs.getString("p_UnitPrice")%>원
 				</h4>
 				<p>
 				<form name="addForm"
-					action="./addCart.jsp?id=<%=product.getProductId()%>" method="post">
-					<a href="./products.jsp" class="btn btn-success">상품 목록 &raquo;</a>
-					<a class="btn btn-danger" >상품 삭제 &raquo;</a> <a
+					action="./addCart.jsp?id=<%=rs.getString("p_id")%>" method="post">
+					<a href="./products.jsp" class="btn btn-success">상품 목록 &raquo;</a><a
 						href="products.jsp" class="btn btn-warning" onclick="addToCart()">상품
 						사기 &raquo;</a> <a href="./cart.jsp" class="btn btn-warning">장바구니&raquo;</a>
 				</form>
@@ -67,4 +69,13 @@
 	</div>
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
+<%
+	}
+	if (rs != null)
+		rs.close();
+	if (pstmt != null)
+		pstmt.close();
+	if (conn != null)
+		conn.close();
+%>
 </html>

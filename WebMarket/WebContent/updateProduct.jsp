@@ -7,10 +7,8 @@
 </head>
 <body>
 	<jsp:include page="Header.jsp" />
-	<div class="jumbotron">
-		<div class="container">
-			<h1 class="display-3">상품 수정</h1>
-		</div>
+	<div class="container">
+		<h1 class="display-3">상품 수정</h1>
 	</div>
 	<%@ include file="dbconn.jsp"%>
 	<%
@@ -28,8 +26,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-5">
-				<img src="./resources/Image/<%=rs.getString("p_fileName")%>" alt="image"
-					style="width: 100%" />
+				<img src="./resources/Image/<%=rs.getString("p_fileName")%>"
+					alt="image" style="width: 100%" />
 			</div>
 			<div class="col-md-7">
 				<form name="newProduct" action="./processUpadteProduct.jsp"

@@ -29,15 +29,23 @@
 		<location>/exceptionNoPage.jsp</location>
 	</error-page>
 	<filter>
-      <filter-name>LogFilter</filter-name>
-      <filter-class>filter.LogFilter</filter-class>
-      <init-param>
-         <param-name>filename</param-name>
-         <param-value>c:\\logs\\webmarket.log</param-value>
-      </init-param>
-   </filter>
-   <filter-mapping>
-      <filter-name>LogFilter</filter-name>
-      <url-pattern>/*</url-pattern>
-   </filter-mapping>
+		<filter-name>LogFilter</filter-name>
+		<filter-class>filter.LogFilter</filter-class>
+		<init-param>
+			<param-name>filename</param-name>
+			<param-value>c:\\logs\\webmarket.log</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>LogFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<servlet>
+		<servlet-name>BoardController</servlet-name>
+		<servlet-class>mvc.controller.BoardController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BoardController</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
 </web-app>

@@ -19,7 +19,7 @@
 		String phone2 = request.getParameter("phone2");
 		String phone3 = request.getParameter("phone3");
 		String city = request.getParameter("city");
-		String address= request.getParameter("address");
+		String address = request.getParameter("address");
 		String sex = request.getParameter("sex");
 		String hobby1 = request.getParameter("hobby1");
 		String hobby2 = request.getParameter("hobby2");
@@ -31,8 +31,9 @@
 	<p>
 		비밀번호 :
 		<%=password%>
-	<p> 이메일 :
-		<%= email %>@<%=gmail %>
+	<p>
+		이매일 :
+		<%=email%>@<%=gmail%>
 	<p>
 		이름 :
 		<%=name%>
@@ -41,12 +42,10 @@
 		<%=phone1%>
 		<%=phone2%>
 		<%=phone3%>
-		
 	<p>
 		주소 :
-		<%= city %>
-		<%= address %>
-		
+		<%=city%>
+		<%=address%>
 	<p>
 		성별 :
 		<%=sex%>

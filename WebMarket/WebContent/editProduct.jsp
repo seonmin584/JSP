@@ -38,7 +38,7 @@
 			<div class="col-md-4">
 
 				<img src="./resources/Image/<%=rs.getString("p_fileName")%>"
-					style="width: 100%">
+					style="width: 100%; height: 300px;">
 				<h3><%=rs.getString("p_name")%></h3>
 				<p><%=rs.getString("p_description")%>
 				<p><%=rs.getString("p_UnitPrice")%>원

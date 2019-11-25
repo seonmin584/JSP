@@ -1,11 +1,10 @@
-<%@ page contentType="text/html; charset=EUC-KR" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.Date"%>
 <html>
 <head>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
-<script type="text/javascript" src="./js/app.js"></script>
 <title>Welcome</title>
 </head>
 <body>
