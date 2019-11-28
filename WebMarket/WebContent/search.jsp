@@ -1,20 +1,31 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
-<html>
-<head>
-</head>
-<body>
-	<%
-		request.setCharacterEncoding("utf-8");
-		String usersc = request.getParameter("search");
+<%@ page import="java.sql.*"%>
+<%@ include file="./dbconn.jsp"%>
+<%
+	request.setCharacterEncoding("UTF-8");
 
-		if (usersc.equals("ㄴ")) {
-			response.sendRedirect("http://localhost:8080/WebMarket/product.jsp?id=P1236");
-		} else if (usersc.equals("설국열차") || usersc.equals("열차")) {
-			response.sendRedirect("http://localhost:8080/WebMarket/product.jsp?id=P1234");
-		} else {
-			response.sendRedirect("http://localhost:8080/WebMarket/product.jsp?id=P1235");
-		}
-	%>
-</body>
-</html>
+	String p_name = request.getParameter("p_name");
 
+	session.setAttribute("sessionPname", p_name);
+
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+
+	String sql = "select p_id from product where p_name=?";
+	pstmt = conn.prepareStatement(sql);
+	pstmt.setString(1, p_name);
+
+	rs = pstmt.executeQuery();
+
+	if (rs.next()) {
+%>
+<script>
+	location.href="http://localhost:8080/WebMarket/product.jsp?p_name=<%=p_name%>";
+</script>
+<%
+	}
+%>
+<script>
+	alert("<%=p_name%>(이)란 상품이 존재하지않습니다.");
+	location.href = "./welcome.jsp";
+</script>

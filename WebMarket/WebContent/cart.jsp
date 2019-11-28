@@ -8,7 +8,7 @@
 <%
 	String cartId = session.getId();
 %>
-<title>Insert title here</title>
+<title>장바구니</title>
 </head>
 <body>
 	<jsp:include page="Header.jsp" />

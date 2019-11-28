@@ -61,7 +61,8 @@ h2:hover {
 					<h4>iPhone 6s</h4>
 					<p>800,000원</p>
 					<div class="btn">
-						<a href="http://localhost:8080/WebMarket/product.jsp?id=P1234"
+						<a
+							href="http://localhost:8080/WebMarket/product.jsp?p_name=iPhone 6s"
 							class="btn btn-success">자세히 보기 &raquo;</a>
 					</div>
 				</div>
@@ -73,7 +74,8 @@ h2:hover {
 					<h4>LG PC 그램</h4>
 					<p>1,500,000원</p>
 					<div class="btn">
-						<a href="http://localhost:8080/WebMarket/product.jsp?id=P1235"
+						<a
+							href="http://localhost:8080/WebMarket/product.jsp?p_name=LG PC gram"
 							class="btn btn-success">자세히 보기 &raquo;</a>
 					</div>
 				</div>
@@ -82,10 +84,11 @@ h2:hover {
 				<div class="card">
 					<img src="./resources/Image/P1236.jpg"
 						style="width: 100%; height: 325.5px">
-					<h4>Galaxy Tab S</h4>
+					<h4>GalaxyTabS</h4>
 					<p>900,000원</p>
 					<div class="btn">
-						<a href="http://localhost:8080/WebMarket/product.jsp?id=P1236"
+						<a
+							href="http://localhost:8080/WebMarket/product.jsp?p_name=GalaxyTabS"
 							class="btn btn-success">자세히 보기 &raquo;</a>
 					</div>
 				</div>

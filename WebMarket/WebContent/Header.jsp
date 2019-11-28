@@ -19,7 +19,7 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="#" style="color: PaleGreen"><a
-			href="welcome.jsp">Shopping Mall</a></a>
+			href="<c:url value="/welcome.jsp"/>">Shopping Mall</a></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -29,14 +29,14 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Home<span
-						class="sr-only">(current)</span></a></li>
+				<li class="nav-item active"><a class="nav-link"
+					href="<c:url value="/welcome.jsp"/>">Home<span class="sr-only">(current)</span></a></li>
 				<li class="nav-item"><a class="nav-link"
 					href="<c:url value="/BoardListAction.do?pageNum=1"/>">게시판</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> 상품 </a>
+					aria-expanded="false">상품 </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="<c:url value="/addProduct.jsp"/>">상품
 							등록</a> <a class="dropdown-item" href="<c:url value="/products.jsp"/>">상품
@@ -86,7 +86,7 @@
 				}
 			%>
 			<form class="form-inline my-2 my-lg-0" action="./search.jsp">
-				<input class="form-control mr-sm-2" type="search" name="search"
+				<input class="form-control mr-sm-2" type="search" name="p_id"
 					placeholder="Search" aria-label="Search">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>

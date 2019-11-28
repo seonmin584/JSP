@@ -27,13 +27,15 @@
 			%>
 
 			<div class="col-md-4">
-				<img src="./resources/Image/<%=rs.getString("p_fileName")%>"
-					style="width: 100%; height: 300px;">
+				<a
+					href="http://localhost:8080/WebMarket/resources/Image/<%=rs.getString("p_fileName")%>"><img
+					src="./resources/Image/<%=rs.getString("p_fileName")%>"
+					style="width: 100%; height: 300px;"></a>
 				<h3><%=rs.getString("p_name")%></h3>
 				<p><%=rs.getString("p_description")%>
 				<p><%=rs.getString("p_UnitPrice")%>원 &raquo;
 				<p>
-					<a href="./product.jsp?id=<%=rs.getString("p_id")%>"
+					<a href="./product.jsp?p_name=<%=rs.getString("p_name")%>"
 						class="bin btn-secondary" role="button"> 상세 정보 </a>
 			</div>
 			<%

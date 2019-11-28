@@ -24,14 +24,14 @@
 	</div>
 	<%@ include file="dbconn.jsp"%>
 	<%
-		String productId = request.getParameter("id");
+		String p_name = request.getParameter("p_name");
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		String sql = "select * from product where p_id = ?";
+		String sql = "select * from product where p_name = ?";
 		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, productId);
+		pstmt.setString(1, p_name);
 		rs = pstmt.executeQuery();
 		if (rs.next()) {
 	%>
